@@ -11,8 +11,12 @@
   <div class="container my-4">
     <form action="censura.php" method="POST">
       <div class="mb-3">
-        <label for="paragraph" class="form-label">Inserire un paragrafo:</label>
-        <input type="text" class="form-control" id="paragraph" name="paragraph" placeholder="Inserisci un testo">
+        <label for="paragraph">
+          Inserisci un paragrafo:
+        </label>
+        <br>
+        <textarea id="paragraph" name="paragraph" class="form-control" placeholder="Inserisci il tuo paragrafo" rows="6" style="width: 100%;">
+        </textarea>
       </div>
       <div class="mb-3">
         <label for="word" class="form-label">Inserire una parola da censurare:</label>
