@@ -8,6 +8,8 @@
     $paragrafWithWord  = str_replace($word, '***', $paragrafWithWord);
     $lengthParagraphWord = strlen($paragrafWithWord);
   }
+    /* bonus personale */
+  $wordCount = str_word_count($paragraph);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,6 +22,7 @@
 <h1>Risultato</h1>
   <h2>il paragrafo è "<?php echo $paragraph ?>";</h2>
   <h2>il paragrafo contiene: <?php echo $lengthParagraph ?> lettere.</h2>
+  <h2>Il paragrafo contiene: <?php echo $wordCount ?> parole.</h2>
 
   <h2>il nuovo paragrafo è "<?php echo $paragrafWithWord ?>";</h2>
   <h2>il nuovo paragrafo contiene: <?php echo $lengthParagraphWord ?> lettere.</h2>
