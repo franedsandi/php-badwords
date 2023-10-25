@@ -1,15 +1,14 @@
 <?php
   $paragraph = $_POST['paragraph'];
-  $lengthParagraph = strlen($paragraph);
   $word = $_POST['word'];
-  $paragrafWithWord = $_POST['paragraph'];
 
-  if (str_contains($paragrafWithWord , $word)) {
-    $paragrafWithWord  = str_replace($word, '***', $paragrafWithWord);
-    $lengthParagraphWord = strlen($paragrafWithWord);
+  $explode_paragraph = explode(' ', $paragraph);
+  
+  if (in_array($word, $explode_paragraph)) {
+      $censored_paragraph = str_replace($word, '***', $paragraph);
+  } else {
+      $censored_paragraph = $paragraph;
   }
-    /* bonus personale */
-  $wordCount = str_word_count($paragraph);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,12 +18,15 @@
   <title>PHP badwords</title>
 </head>
 <body>
-<h1>Risultato</h1>
-  <h2>il paragrafo è "<?php echo $paragraph ?>";</h2>
-  <h2>il paragrafo contiene: <?php echo $lengthParagraph ?> lettere.</h2>
-  <h2>Il paragrafo contiene: <?php echo $wordCount ?> parole.</h2>
-
-  <h2>il nuovo paragrafo è "<?php echo $paragrafWithWord ?>";</h2>
-  <h2>il nuovo paragrafo contiene: <?php echo $lengthParagraphWord ?> lettere.</h2>
+  <div class="container">
+    <h1>Risultato</h1>
+      <h2>il paragrafo è "<?php echo $paragraph ?>";</h2>
+      <h2>Il paragrafo contiene: <?php echo strlen($paragraph) ?> caratteri</h2>
+      <h2>Il paragrafo contiene: <?php echo count($explode_paragraph) ?> parole.</h2>
+      <hr>
+      <h2>il nuovo paragrafo è "<?php echo $censored_paragraph ?>";</h2>
+      <h2>Il paragrafo contiene: <?php echo strlen($censored_paragraph) ?> caratteri</h2>
+      <h2>Il paragrafo contiene: <?php echo count(explode(' ', $censored_paragraph)) ?> parole.</h2>
+  </div>
 </body>
 </html>
